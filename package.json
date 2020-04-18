@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/server.js"
   },
-  "author": "",
+  "author": "AnnaFragoso <anna.barbara.fragoso@hotmail.com>",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -22,5 +22,6 @@
   },
   "devDependencies": {
     "sequelize-cli": "^5.5.1"
-  }
+  },
+  "repository": "https://github.com/AnnaFragoso/GerenciaDeProdutos.git"
 }

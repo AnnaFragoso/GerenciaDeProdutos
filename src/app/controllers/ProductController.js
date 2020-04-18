@@ -7,15 +7,15 @@ class ProductController {
     }
 
     async store(req, response){
-        try{
+        //try{
         //const nome = request.only;
-        //console.log(req)
+        console.log(req)
         const product = await Product.create(req.body);
 
         return res.json(product);
-        } catch(error) {
-            console.log(error)
-        }
+        //} catch(error) {
+        //    console.log(error)
+        //}
     }
 
     async update(req, res) {
