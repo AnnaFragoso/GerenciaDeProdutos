@@ -6,7 +6,7 @@ class ProductController {
         return res.json(products);
     }
 
-    async store(req, response){
+    async store(req, res){
         //try{
         //const nome = request.only;
         console.log(req)
