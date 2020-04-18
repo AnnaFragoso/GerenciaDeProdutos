@@ -16,7 +16,7 @@ class ProductController {
     }
 
     async update(request, response) {
-        const product = await Product.findByPk(request.body.id);
+        const product = await Product.findByPk(request.params.id);
 
         if (product) {
             const { id, name, descricao, preco, quantidade } = await product.update(request.body);
@@ -35,7 +35,10 @@ class ProductController {
         }
     }
 
-    async delete(req, res){
+    async delete(request, response){
+        await Product.destroy({ where: { id: request.params.id }});
+
+        return response.json('Produto deletado');
     }
 
     async productParams(request) {

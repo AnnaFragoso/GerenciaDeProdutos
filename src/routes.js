@@ -6,7 +6,8 @@ const routes = new Router();
 
 routes.post('/produtos', ProductController.store);
 routes.get('/produtos', ProductController.index);
-routes.put('/produtos', ProductController.update);
+routes.put('/produtos/:id', ProductController.update);
+routes.delete('/produtos/:id', ProductController.delete);
 //routes.get('/', async(req, res) => {
 //    const product = await Product.create({
 //        name: 'Garfo',
