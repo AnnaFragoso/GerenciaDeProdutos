@@ -6,22 +6,44 @@ class ProductController {
         return res.json(products);
     }
 
-    async store(req, res){
-        //try{
-        //const nome = request.only;
-        console.log(req)
-        const product = await Product.create(req.body);
+    async store(request, response){
+        //console.log(req)
+        //const data = await this.productParams(request);
+        //console.log(data)
+        const product = await Product.create(request.body);
 
-        return res.json(product);
-        //} catch(error) {
-        //    console.log(error)
-        //}
+        return response.json(product);
     }
 
-    async update(req, res) {
-        
+    async update(request, response) {
+        const product = await Product.findByPk(request.body.id);
+
+        if (product) {
+            const { id, name, descricao, preco, quantidade } = await product.update(request.body);
+
+            return response.json(
+                {
+                    id, 
+                    name, 
+                    descricao,
+                    preco,
+                    quantidade
+                }
+            )
+        } else {
+            return response.json('Produto não encontrado')
+        }
     }
 
     async delete(req, res){
+    }
+
+    async productParams(request) {
+        return request.only([
+            'name',
+            'descricao',
+            'preco',
+            'quantidade'
+        ])
     }
 } export default new ProductController();
