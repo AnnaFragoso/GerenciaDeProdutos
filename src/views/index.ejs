@@ -30,9 +30,12 @@
               <td><%= product.descricao %></td>
               <td>R$<%= product.preco %></td>
               <td><%= product.quantidade %></td>
-              <td><input type="submit" value="Deletar" class="btn btn-danger"/></td>
+              <td>
+                <a value="Deletar" class="btn btn-danger" href="/delete/produtos/<%= product.id %>">Deletar</a>
+              </td>
             </tr>
             <% }) %>
+            
           </tbody>
         </table>
       </div>

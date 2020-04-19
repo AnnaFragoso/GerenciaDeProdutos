@@ -13,7 +13,7 @@ class ProductController {
         //const data = await this.productParams(request);
         //console.log(data)
         const product = await Product.create(request.body);
-        return response.redirect('/produtos')
+        return response.redirect('/produtos');
         //await index();
     }
 
@@ -40,7 +40,7 @@ class ProductController {
     async delete(request, response){
         await Product.destroy({ where: { id: request.params.id }});
 
-        return response.json('Produto deletado');
+        return response.redirect('/produtos');
     }
 
     async productParams(request) {
