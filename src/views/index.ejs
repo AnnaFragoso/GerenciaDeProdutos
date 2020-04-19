@@ -7,8 +7,7 @@
   </head>
   <body>
     <main>
-      <h1></h1>
-      <p>Bem vindo(a) ao <strong><%= products[0].name %></strong></p>
+      <h1>Gerenciamento de Produtos</h1>
       <a href="/form" class="btn btn-primary">Cadastrar produto</a>
       </br>
       <div class="container">
@@ -20,6 +19,7 @@
               <th scope="col">Descrição</th>
               <th scope="col">Preço</th>
               <th scope="col">Quantidade</th>
+              <th scope="col">Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -30,6 +30,7 @@
               <td><%= product.descricao %></td>
               <td>R$<%= product.preco %></td>
               <td><%= product.quantidade %></td>
+              <td><input type="submit" value="Deletar" class="btn btn-danger"/></td>
             </tr>
             <% }) %>
           </tbody>
