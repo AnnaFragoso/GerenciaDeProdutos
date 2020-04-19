@@ -8,6 +8,7 @@ routes.post('/produtos', ProductController.store);
 routes.get('/produtos', ProductController.index);
 routes.put('/produtos/:id', ProductController.update);
 routes.delete('/produtos/:id', ProductController.delete);
+routes.get('/form', (req, res) => res.render('form'));
 //routes.get('/', async(req, res) => {
 //    const product = await Product.create({
 //        name: 'Garfo',

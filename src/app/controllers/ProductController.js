@@ -1,9 +1,11 @@
 import Product from '../models/Product';
 
 class ProductController {
-    async index(res){
+    async index(response, view){
         const products = await Product.findAll();
-        return res.json(products);
+       // return res.json(products);
+       //response.send(view.render('index', { products })
+       return view.render('index',{ products })
     }
 
     async store(request, response){
