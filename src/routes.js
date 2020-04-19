@@ -1,8 +1,10 @@
 import { Router } from 'express';
 //import Product from './app/models/Product';
 import ProductController from './app/controllers/ProductController';
+const bodyparser = require('body-parser');
 
 const routes = new Router();
+routes.use(bodyparser.urlencoded({ extended: true }))
 
 routes.post('/produtos', ProductController.store);
 routes.get('/produtos', ProductController.index);

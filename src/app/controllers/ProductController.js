@@ -13,8 +13,8 @@ class ProductController {
         //const data = await this.productParams(request);
         //console.log(data)
         const product = await Product.create(request.body);
-
-        return response.json(product);
+        return response.redirect('/produtos')
+        //await index();
     }
 
     async update(request, response) {
