@@ -1,4 +1,5 @@
 import Product from '../models/Product';
+import { request } from 'express';
 
 class ProductController {
     async index(response, view){
@@ -17,21 +18,22 @@ class ProductController {
         //await index();
     }
 
+    async edit(request, view) {
+        console.log(request.params.id)
+        const data = await request.params;
+        console.log(data)
+        return view.render('editForm', { data });
+    }
+
     async update(request, response) {
         const product = await Product.findByPk(request.params.id);
 
         if (product) {
-            const { id, name, descricao, preco, quantidade } = await product.update(request.body);
+            //const { id, name, descricao, preco, quantidade } = 
+            await product.update(request.body);
 
-            return response.json(
-                {
-                    id, 
-                    name, 
-                    descricao,
-                    preco,
-                    quantidade
-                }
-            )
+            return response.redirect('/produtos');
+            
         } else {
             return response.json('Produto não encontrado')
         }
