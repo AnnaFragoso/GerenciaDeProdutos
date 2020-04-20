@@ -21,7 +21,7 @@ npm install
 
 Configure o arquivo .env (siga o arquivo de exemplo)
 ```
-https://github.com/AnnaFragoso/GoBarber/blob/branch1/.env.example
+https://github.com/AnnaFragoso/GerenciaDeProdutos/blob/master/.env.example
 ```
 
 Rode o projeto
