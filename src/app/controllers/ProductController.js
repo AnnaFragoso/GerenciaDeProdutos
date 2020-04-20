@@ -1,5 +1,5 @@
+import * as Yup from 'yup';
 import Product from '../models/Product';
-import { request } from 'express';
 
 class ProductController {
     async index(response, view){
@@ -8,6 +8,17 @@ class ProductController {
     }
 
     async store(request, response){
+        const schema = Yup.object().shape({
+            name: Yup.string().required(),
+            descricao: Yup.string(),
+            preco: Yup.number().required(),
+            quantidade: Yup.number()
+        });
+
+        if (!(await schema.isValid(request.body))) {
+            return response.status(400).json({error: "Falha na validação"});
+        }
+
         const product = await Product.create(request.body);
         return response.redirect('/produtos');
     }
@@ -21,6 +32,17 @@ class ProductController {
         const product = await Product.findByPk(request.params.id);
 
         if (product) {
+            const schema = Yup.object().shape({
+                name: Yup.string().required(),
+                descricao: Yup.string(),
+                preco: Yup.number().required(),
+                quantidade: Yup.number()
+            });
+    
+            if (!( await schema.isValid(request.body))) {
+                return response.status(400).json({error: "Falha na validação"});
+            }
+
             await product.update(request.body);
 
             return response.redirect('/produtos');
